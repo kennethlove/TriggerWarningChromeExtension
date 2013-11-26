@@ -1,0 +1,42 @@
+{
+    "name": "__MSG_appName__",
+    "version": "0.0.2",
+    "manifest_version": 2,
+    "description": "__MSG_appDescription__",
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "scripts/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://movies.netflix.com/WiMovie/*",
+                "https://movies.netflix.com/WiMovie/*"
+            ],
+            "css": [
+                "styles/main.css"
+            ],
+            "js": [
+                "scripts/zepto.min.js",
+                "scripts/contentscript.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "tabs",
+        "history",
+        "http://movies.netflix.com/WiMovie/*",
+        "https://movies.netflix.com/WiMovie/*",
+        "http://movietriggers.com/*"
+    ]
+}
